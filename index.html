@@ -1,0 +1,284 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Niharika Tatikonda | QA and Data Portfolio</title>
+<meta name="description" content="Portfolio of Niharika Tatikonda: QA testing, Playwright automation, SQL and data pipelines on AWS and Snowflake.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+  /* ===== Colors: change --accent to restyle buttons and bars ===== */
+  :root {
+    --accent: #1F5C99;
+    --accent-dark: #163F6A;
+    --ink: #1B2430;
+    --muted: #3F4A58;
+    --ground: #EEF1F4;
+    --line: #D5DBE2;
+    --flag: #B4561A;
+    --display: 'Bricolage Grotesque', 'IBM Plex Sans', sans-serif;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { margin: 0; background: var(--ground); color: var(--ink);
+         font-family: 'IBM Plex Sans', 'Segoe UI', system-ui, sans-serif; font-size: 17px; line-height: 1.6; }
+  a { color: var(--accent); } a:hover { color: var(--accent-dark); }
+  a:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
+  h1, h2, h3 { font-family: var(--display); font-weight: 700; margin: 0; }
+  p, ul { margin: 0; }
+  .wrap { max-width: 1120px; margin: 0 auto; padding: 0 32px; }
+  .stack { display: flex; flex-direction: column; }
+  .two-col { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)); gap: 48px 64px; }
+  .muted { color: var(--muted); }
+  .btn { display: inline-flex; align-items: center; min-height: 48px; padding: 0 22px; border-radius: 6px;
+         font-weight: 600; text-decoration: none; background: var(--accent); color: #fff; }
+  .btn:hover { background: var(--accent-dark); color: #fff; }
+  .btn-outline { background: transparent; color: var(--ink); border: 1.5px solid var(--ink); }
+  .btn-outline:hover { background: var(--ink); color: #fff; }
+  .text-link { font-weight: 600; min-height: 44px; display: inline-flex; align-items: center; }
+  .section-title { font-size: clamp(34px, 4vw, 48px); letter-spacing: -0.02em; }
+  .tags { display: flex; flex-wrap: wrap; gap: 8px; list-style: none; padding: 0; }
+  .tags li { padding: 4px 12px; background: #E3EAF2; color: var(--accent-dark); border-radius: 999px; font-size: 14px; font-weight: 500; }
+  .bullets { padding-left: 20px; display: flex; flex-direction: column; gap: 10px; }
+  .panel { margin: 0; padding: 28px; background: #F6F8FA; border: 1px solid var(--line); border-radius: 10px; }
+  .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 16px; }
+  .stat-num { font-family: var(--display); font-weight: 700; font-size: 34px; line-height: 1.1; display: block; }
+  .stat-label { font-size: 15px; color: var(--muted); }
+  .flag { color: var(--flag); }
+
+  /* Header */
+  header .wrap { padding-top: 28px; padding-bottom: 28px; display: flex; flex-wrap: wrap; gap: 16px 32px; align-items: center; justify-content: space-between; }
+  .brand { font-family: var(--display); font-weight: 700; font-size: 20px; color: var(--ink); text-decoration: none; }
+  nav { display: flex; flex-wrap: wrap; gap: 4px 24px; font-weight: 500; font-size: 16px; }
+  nav a { color: var(--ink); text-decoration: none; padding: 10px 0; }
+
+  /* Hero */
+  .hero { padding-top: 72px; padding-bottom: 96px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)); gap: 56px; align-items: end; }
+  .hero h1 { font-size: clamp(48px, 8vw, 104px); line-height: 0.95; letter-spacing: -0.03em; }
+  .tagline { font-size: clamp(20px, 2.2vw, 26px); line-height: 1.4; max-width: 30ch; }
+
+  /* Projects */
+  .projects { background: #fff; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .projects > .wrap { padding-top: 96px; padding-bottom: 96px; gap: 96px; }
+  .project + .project { padding-top: 96px; border-top: 1px solid var(--line); }
+  .project h3 { font-size: 30px; line-height: 1.15; letter-spacing: -0.01em; }
+  .bars { display: flex; flex-direction: column; gap: 12px; }
+  .bar-row { display: grid; grid-template-columns: minmax(0, 9.5rem) minmax(0, 1fr) 3.6rem; gap: 12px; align-items: center; font-size: 15px; }
+  .bar-track { height: 14px; background: #E3E8EE; border-radius: 3px; }
+  .bar-fill { height: 14px; background: var(--accent); border-radius: 3px; }
+  .bar-val { text-align: right; font-weight: 600; font-variant-numeric: tabular-nums; }
+  .suites { list-style: none; padding: 0; }
+  .suites li { display: grid; grid-template-columns: 28px minmax(0, 1fr) auto; gap: 14px; align-items: center; padding: 12px 0; border-bottom: 1px solid #E3E8EE; }
+  .suites small { display: block; font-size: 14px; color: #4A5563; }
+
+  /* Experience */
+  .job { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); gap: 16px 48px; }
+  .job + .job { padding-top: 48px; border-top: 1px solid var(--line); }
+  .job-body { grid-column: span 2; min-width: 0; }
+  .job h3 { font-size: 26px; }
+  .when { font-weight: 600; color: var(--accent); }
+
+  /* Skills */
+  .skills { background: var(--ink); color: #F2F4F7; }
+  .skills h2, .skills h3 { color: #fff; }
+  .skill-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr)); gap: 40px 48px; }
+  .skill-grid > div { padding-top: 16px; border-top: 2px solid #8FB4DC; }
+  .skill-grid h3 { font-family: inherit; font-size: 18px; font-weight: 600; margin-bottom: 12px; }
+  .skill-grid p, .skills .muted { color: #C9D2DD; line-height: 1.7; }
+  .edu { display: flex; flex-wrap: wrap; gap: 8px 32px; align-items: baseline; padding-top: 32px; border-top: 1px solid #3A4656; }
+
+  @media (max-width: 720px) { .job-body { grid-column: auto; } .wrap { padding: 0 20px; } }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <a class="brand" href="#top">Niharika Tatikonda</a>
+    <nav aria-label="Sections">
+      <a href="#projects">Projects</a>
+      <a href="#experience">Experience</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <!-- ===================== INTRO ===================== -->
+  <section id="top" class="wrap hero">
+    <div class="stack" style="gap: 28px">
+      <h1>Niharika Tatikonda</h1>
+      <p class="tagline">I test software, and I check the data behind it.</p>
+    </div>
+    <div class="stack" style="gap: 24px">
+      <p class="muted" style="max-width: 52ch">Computer Science graduate working across QA, SQL and project coordination. I write test cases and Playwright automation, validate backend records with SQL, and build data pipelines on Amazon S3, AWS Glue, Athena and Snowflake.</p>
+      <div style="display: flex; flex-wrap: wrap; gap: 12px">
+        <a class="btn" href="mailto:niharikaniha0707@gmail.com">Email me</a>
+        <a class="btn btn-outline" href="https://github.com/NiharikaT07">GitHub</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== PROJECTS ===================== -->
+  <section id="projects" class="projects">
+    <div class="wrap stack">
+      <h2 class="section-title">Projects</h2>
+
+      <!-- Project 1 -->
+      <article class="project two-col">
+        <div class="stack" style="gap: 20px">
+          <h3>E-commerce order and refund analysis</h3>
+          <p class="muted">A batch pipeline that answers two questions for an online store: which product categories get refunded most, and which transactions look wrong.</p>
+          <ul class="bullets">
+            <li>Landed raw order and refund files in Amazon S3 and processed them with PySpark on AWS Glue.</li>
+            <li>Calculated refund rates by product category and region, and flagged over-refunds, refunds dated before the order, repeat refunds and outlier order amounts.</li>
+            <li>Wrote Parquet partitioned by order date back to S3 and queried it with Athena, so recurring queries scan far less data.</li>
+            <li>Loaded curated summary tables into Snowflake and wrote SQL views for weekly reporting by category and region.</li>
+          </ul>
+          <ul class="tags" aria-label="Technologies">
+            <li>PySpark</li><li>AWS Glue</li><li>Amazon S3</li><li>Athena</li><li>Snowflake</li><li>SQL</li>
+          </ul>
+          <a class="text-link" href="https://github.com/NiharikaT07/ecommerce-order-refund-analysis">View the code on GitHub</a>
+        </div>
+        <div class="stack" style="gap: 28px">
+          <figure class="panel stack" style="gap: 18px">
+            <figcaption class="stack" style="gap: 2px">
+              <strong style="font-weight: 600">Share of orders refunded, by category</strong>
+              <span style="font-size: 14px; color: #4A5563">90 days of sample data, about 36,000 orders</span>
+            </figcaption>
+            <!-- To change a bar: edit the % in width (value / 18 * 100) and the label -->
+            <div class="bars">
+              <div class="bar-row"><span>Apparel</span><div class="bar-track"><div class="bar-fill" style="width: 97.6%"></div></div><span class="bar-val">17.6%</span></div>
+              <div class="bar-row"><span>Electronics</span><div class="bar-track"><div class="bar-fill" style="width: 45.8%"></div></div><span class="bar-val">8.2%</span></div>
+              <div class="bar-row"><span>Sports &amp; Outdoors</span><div class="bar-track"><div class="bar-fill" style="width: 41.3%"></div></div><span class="bar-val">7.4%</span></div>
+              <div class="bar-row"><span>Home &amp; Kitchen</span><div class="bar-track"><div class="bar-fill" style="width: 38.6%"></div></div><span class="bar-val">7.0%</span></div>
+              <div class="bar-row"><span>Toys</span><div class="bar-track"><div class="bar-fill" style="width: 35.2%"></div></div><span class="bar-val">6.3%</span></div>
+              <div class="bar-row"><span>Beauty</span><div class="bar-track"><div class="bar-fill" style="width: 25.3%"></div></div><span class="bar-val">4.6%</span></div>
+              <div class="bar-row"><span>Books</span><div class="bar-track"><div class="bar-fill" style="width: 16.6%"></div></div><span class="bar-val">3.0%</span></div>
+            </div>
+          </figure>
+          <div class="stats">
+            <div><span class="stat-num flag">306</span><span class="stat-label">orders flagged for review</span></div>
+            <div><span class="stat-num">9x less</span><span class="stat-label">data read for a one-week query</span></div>
+            <div><span class="stat-num">30</span><span class="stat-label">duplicate orders removed</span></div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Project 2 -->
+      <article class="project two-col">
+        <div class="stack" style="gap: 20px">
+          <h3>E-commerce web application test automation</h3>
+          <p class="muted">End-to-end tests for an online store, covering everything a shopper does between signing in and placing an order.</p>
+          <ul class="bullets">
+            <li>Automated login, inventory, cart management and checkout workflows using Playwright.</li>
+            <li>Recorded the first flow with Playwright Codegen, then rewrote it with assertions after every step.</li>
+            <li>Moved locators into reusable page objects so each test reads like a test case.</li>
+            <li>Ran end-to-end scenarios in Chromium and Firefox and documented the functional issues found.</li>
+          </ul>
+          <ul class="tags" aria-label="Technologies">
+            <li>Playwright</li><li>JavaScript</li><li>Playwright Codegen</li><li>Page Object Model</li>
+          </ul>
+          <a class="text-link" href="https://github.com/NiharikaT07/ecommerce-playwright-automation">View the code on GitHub</a>
+        </div>
+        <div class="stack" style="gap: 28px">
+          <figure class="panel stack" style="gap: 14px">
+            <figcaption><strong style="font-weight: 600">Test coverage by workflow</strong></figcaption>
+            <ol class="suites">
+              <li><svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1F5C99" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M7.5 12.5l3 3 6-6.5"/></svg>
+                <span><strong>Login</strong><small>Valid, invalid, locked-out and empty-field checks, logout</small></span><strong>6 tests</strong></li>
+              <li><svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1F5C99" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M7.5 12.5l3 3 6-6.5"/></svg>
+                <span><strong>Inventory</strong><small>Product listing, sorting, detail pages, known defects</small></span><strong>7 tests</strong></li>
+              <li><svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1F5C99" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M7.5 12.5l3 3 6-6.5"/></svg>
+                <span><strong>Cart</strong><small>Add, remove and persistence across pages</small></span><strong>5 tests</strong></li>
+              <li><svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1F5C99" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M7.5 12.5l3 3 6-6.5"/></svg>
+                <span><strong>Checkout</strong><small>Form validation, tax and total math, order completion</small></span><strong>6 tests</strong></li>
+              <li><svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1F5C99" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M7.5 12.5l3 3 6-6.5"/></svg>
+                <span><strong>End to end</strong><small>Full purchase journeys from sign-in to sign-out</small></span><strong>2 tests</strong></li>
+            </ol>
+          </figure>
+          <div class="stats">
+            <div><span class="stat-num">26</span><span class="stat-label">automated test cases</span></div>
+            <div><span class="stat-num">2</span><span class="stat-label">browsers per run</span></div>
+            <div><span class="stat-num flag">2</span><span class="stat-label">defects found and logged</span></div>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- ===================== EXPERIENCE ===================== -->
+  <section id="experience" class="wrap stack" style="padding-top: 96px; padding-bottom: 96px; gap: 48px">
+    <h2 class="section-title">Experience</h2>
+
+    <div class="job">
+      <div class="stack" style="gap: 4px">
+        <span class="when">Oct 2025 to May 2026</span>
+        <span class="muted">[COMPANY NAME]</span>
+      </div>
+      <div class="job-body stack" style="gap: 14px">
+        <h3>QA Tester</h3>
+        <ul class="bullets" style="gap: 8px">
+          <li>Executed manual test cases and functional and regression testing across multiple application modules.</li>
+          <li>Wrote SQL queries to validate application data and compared frontend results with backend database records.</li>
+          <li>Identified, documented and tracked defects with detailed reproduction steps, then retested fixes.</li>
+          <li>Worked with developers to verify bug fixes and support successful releases.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="job">
+      <div class="stack" style="gap: 4px">
+        <span class="when">Sept 2024 to Aug 2025</span>
+        <span class="muted">[COMPANY NAME]</span>
+      </div>
+      <div class="job-body stack" style="gap: 14px">
+        <h3>Project Management Intern</h3>
+        <ul class="bullets" style="gap: 8px">
+          <li>Planned and tracked project activities, sprints and user stories in Azure DevOps and Jira.</li>
+          <li>Coordinated stakeholder meetings and documented minutes, action items and follow-ups.</li>
+          <li>Tracked risks, issues, dependencies and escalations to keep delivery on schedule.</li>
+          <li>Prepared status updates, dashboards and progress metrics in Microsoft Excel for cross-functional teams.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== SKILLS & EDUCATION ===================== -->
+  <section id="skills" class="skills">
+    <div class="wrap stack" style="padding-top: 96px; padding-bottom: 96px; gap: 48px">
+      <h2 class="section-title">Skills and education</h2>
+      <div class="skill-grid">
+        <div><h3>Programming and databases</h3><p>SQL, Python, JavaScript, Snowflake</p></div>
+        <div><h3>Cloud and data tools</h3><p>Amazon S3, AWS Glue, Athena, PySpark</p></div>
+        <div><h3>Testing and automation</h3><p>Manual, functional and regression testing, Playwright, Playwright Codegen</p></div>
+        <div><h3>Project management</h3><p>Jira, Azure DevOps, Microsoft Excel, Teams, Outlook, PowerPoint</p></div>
+      </div>
+      <div class="edu">
+        <span style="font-family: var(--display); font-weight: 700; font-size: 24px; color: #fff">Master of Science in Information Technology</span>
+        <span class="muted">Wayland Baptist University</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== CONTACT ===================== -->
+  <section id="contact" class="wrap stack" style="padding-top: 96px; padding-bottom: 72px; gap: 28px">
+    <h2 style="font-size: clamp(34px, 5vw, 64px); line-height: 1.05; letter-spacing: -0.02em; max-width: 16ch">Hiring for QA, data or project roles?</h2>
+    <p class="muted" style="max-width: 52ch">I'm open to full-time roles, on-site or remote. The fastest way to reach me is email.</p>
+    <div style="display: flex; flex-wrap: wrap; gap: 12px 28px; align-items: center">
+      <a class="btn" href="mailto:niharikaniha0707@gmail.com">niharikaniha0707@gmail.com</a>
+      <a class="text-link" href="https://github.com/NiharikaT07">GitHub</a>
+    </div>
+  </section>
+</main>
+
+<footer class="wrap" style="padding-bottom: 48px">
+  <p style="font-size: 14px; color: #4A5563">Niharika T</p>
+</footer>
+
+</body>
+</html>
